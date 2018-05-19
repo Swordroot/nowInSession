@@ -8,5 +8,6 @@ namespace nowInSession
         public string displayName { get; set; }
         public string restaurantName { get; set; }
         public string restaurantURL { get; set; }
+        public string comment { get; set; }
     }
 }

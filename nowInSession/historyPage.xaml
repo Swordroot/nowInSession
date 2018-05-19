@@ -12,10 +12,17 @@
     <ContentPage.Content>
         <Grid BackgroundColor="White">
             <StackLayout Orientation="Vertical">
-                <ListView x:Name="InvitationListView">
+                <ListView x:Name="InvitationListView" HasUnevenRows="true">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <TextCell Text="{Binding displayName}"/>>
+                            <ViewCell>
+                                <StackLayout Orientation="Vertical">
+                                    <Label Text="{Binding displayName}"/>
+                                    <Label Text="{Binding restaurantName}"/>
+                                    <Label Text="{Binding restaurantURL}"/>
+                                    <Label Text="{Binding comment}"/>
+                                </StackLayout>
+                            </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
@@ -27,8 +34,12 @@
                         <ColumnDefinition Width="*"></ColumnDefinition>
                         <ColumnDefinition Width="*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <Button Grid.Row="0" Grid.Column="0" BackgroundColor="White" Margin="0" BorderRadius="0" BorderWidth="0" Text="受信履歴" Clicked="Click_recievedList"></Button>
-                    <Button Grid.Row="0" Grid.Column="1" BackgroundColor="White" Margin="0" BorderRadius="0" BorderWidth="0" Text="送信履歴" Clicked="Click_sentList"></Button>
+                    <Button Grid.Row="0" Grid.Column="0" BackgroundColor="White" 
+                            Margin="0" BorderRadius="0" BorderWidth="0" Text="受信履歴" 
+                            Clicked="Click_recievedList" />
+                    <Button Grid.Row="0" Grid.Column="1" BackgroundColor="White" 
+                            Margin="0" BorderRadius="0" BorderWidth="0" Text="送信履歴" 
+                            Clicked="Click_sentList"/>
                 </Grid>
             </StackLayout>
         </Grid>

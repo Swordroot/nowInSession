@@ -14,9 +14,7 @@ namespace nowInSession
             InitializeComponent();
 
             InvitationListView.ItemsSource = invitations;
-            invitations.Add(new Invitation { userId = 1, userName = "user1", displayName = "ユーザー１", restaurantName = "レストラン１", restaurantURL = "https://www.restaurant1.com" });
-            invitations.Add(new Invitation { userId = 2, userName = "user2", displayName = "ユーザー２", restaurantName = "レストラン２", restaurantURL = "https://www.restaurant2.com" });
-            invitations.Add(new Invitation { userId = 3, userName = "user3", displayName = "ユーザー３", restaurantName = "レストラン３", restaurantURL = "https://www.restaurant3.com" });
+            showRecievedInvitation();
         }
         void Click_makeInvitation(object sender, EventArgs e)
         {
@@ -24,11 +22,60 @@ namespace nowInSession
         }
         void Click_recievedList(object sender, EventArgs e)
         {
-            DisplayAlert("開発中", "鋭意開発中、しばらくお待ちください", "OK");
+            //DisplayAlert("開発中", "鋭意開発中、しばらくお待ちください", "OK");
+            showRecievedInvitation();
         }
         void Click_sentList(object sender, EventArgs e)
         {
-            DisplayAlert("開発中", "鋭意開発中、しばらくお待ちください", "OK");
+            showSentInvitation();
         }
+        private void showRecievedInvitation()
+        {
+            this.Title = "受信履歴";
+            invitations.Clear();
+            invitations.Add(new Invitation
+            {
+                userId = 1,
+                userName = "user1",
+                displayName = "ユーザー１",
+                restaurantName = "レストラン１",
+                restaurantURL = "https://www.restaurant1.com",
+                comment = "みんなきてね"
+            });
+            invitations.Add(new Invitation
+            {
+                userId = 2,
+                userName = "user2",
+                displayName = "ユーザー２",
+                restaurantName = "レストラン２",
+                restaurantURL = "https://www.restaurant2.com",
+                comment = "みんなきてね"
+            });
+            invitations.Add(new Invitation
+            {
+                userId = 3,
+                userName = "user3",
+                displayName = "ユーザー３",
+                restaurantName = "レストラン３",
+                restaurantURL = "https://www.restaurant3.com",
+                comment = "みんなきてね"
+            });
+        }
+        private void showSentInvitation()
+        {
+            this.Title = "送信履歴";
+            invitations.Clear();
+            invitations.Add(new Invitation
+            {
+                userId = 4,
+                userName = "user4",
+                displayName = "わたし",
+                restaurantName = "レストラン１",
+                restaurantURL = "https://www.restaurant1.com",
+                comment = "みんなこいや"
+            });
+
+        }
+
     }
 }
