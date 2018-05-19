@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="nowInSession.historyPage"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             Title="受信履歴"
+             ios:Page.UseSafeArea="true">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="招集" Clicked="Click_makeInvitation"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <Grid BackgroundColor="White">
+            <StackLayout Orientation="Vertical">
+                <ListView x:Name="InvitationListView">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextCell Text="{Binding displayName}"/>>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Grid Padding="0" BackgroundColor="Blue" ColumnSpacing="1" RowSpacing="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Row="0" Grid.Column="0" BackgroundColor="White" Margin="0" BorderRadius="0" BorderWidth="0" Text="受信履歴" Clicked="Click_recievedList"></Button>
+                    <Button Grid.Row="0" Grid.Column="1" BackgroundColor="White" Margin="0" BorderRadius="0" BorderWidth="0" Text="送信履歴" Clicked="Click_sentList"></Button>
+                </Grid>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
