@@ -8,7 +8,7 @@ namespace nowInSession
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new historyPage());
+            MainPage = new FirstTabbedPage();
         }
 
         protected override void OnStart()

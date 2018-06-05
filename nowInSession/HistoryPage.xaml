@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="nowInSession.HistoryPage"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             Title="受信履歴"
+             ios:Page.UseSafeArea="true">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="招集" Clicked="Click_makeInvitation"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <Grid BackgroundColor="White">
+            <StackLayout Orientation="Vertical">
+                <ListView x:Name="InvitationListView" HasUnevenRows="true" ItemTapped="ItemTapped_HistoryList">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="http://drive.google.com/uc?export=view&amp;id=1dFR5gUMy9uuOTo3MNWhufahtDFf-nxF-" WidthRequest="100"/>
+                                    <StackLayout Orientation="Vertical">
+                                        <Label Text="{Binding displayName}"/>
+                                        <Label Text="{Binding restaurantName}"/>
+                                        <Label Text="{Binding restaurantURL}"/>
+                                        <Label Text="{Binding comment}"/>
+                                    </StackLayout>
+                                </StackLayout>
+
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -6,10 +6,11 @@ using Xamarin.Forms;
 
 namespace nowInSession
 {
-    public partial class historyPage : ContentPage
+    public partial class HistoryPage : ContentPage
     {
         public ObservableCollection<Invitation> invitations = new ObservableCollection<Invitation>();
-        public historyPage()
+        public ObservableCollection<Invitation> sentInvitations = new ObservableCollection<Invitation>();
+        public HistoryPage()
         {
             InitializeComponent();
 
@@ -18,16 +19,12 @@ namespace nowInSession
         }
         void Click_makeInvitation(object sender, EventArgs e)
         {
-            DisplayAlert("開発中", "鋭意開発中、しばらくお待ちください", "OK");
+            Navigation.PushAsync(new createInvitationPage(), true);
         }
-        void Click_recievedList(object sender, EventArgs e)
+        void ItemTapped_HistoryList(object sender, ItemTappedEventArgs e)
         {
-            //DisplayAlert("開発中", "鋭意開発中、しばらくお待ちください", "OK");
-            showRecievedInvitation();
-        }
-        void Click_sentList(object sender, EventArgs e)
-        {
-            showSentInvitation();
+            Invitation selectedInvitation = (Invitation)(e.Item);
+            Navigation.PushAsync(new DetailInvitationPage(selectedInvitation));
         }
         private void showRecievedInvitation()
         {
@@ -61,21 +58,7 @@ namespace nowInSession
                 comment = "みんなきてね"
             });
         }
-        private void showSentInvitation()
-        {
-            this.Title = "送信履歴";
-            invitations.Clear();
-            invitations.Add(new Invitation
-            {
-                userId = 4,
-                userName = "user4",
-                displayName = "わたし",
-                restaurantName = "レストラン１",
-                restaurantURL = "https://www.restaurant1.com",
-                comment = "みんなこいや"
-            });
 
-        }
 
     }
 }

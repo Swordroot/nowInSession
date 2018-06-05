@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="nowInSession.DetailInvitationForSenderPage">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical">
+            <Label XAlign="Center" Text="誘ってくれた人"/>
+            <Image Source="http://drive.google.com/uc?export=view&amp;id=1dFR5gUMy9uuOTo3MNWhufahtDFf-nxF-" HeightRequest="100"/>
+            <Label XAlign="Center" Text="ユーザー名" x:Name="labelDisplayName" FontSize="Large"/>
+            <Label XAlign="Center" Text="お店の名前"/>
+            <Label XAlign="Center" Text="飲み屋テスト" x:Name="labelRestaurantName" FontSize="Large"/>
+            <Label XAlign="Center" Text="お店の詳細"/>
+            <Label XAlign="Center" Text="なし" x:Name="labelRestaurantURL" FontSize="Large"/>
+            <Label XAlign="Center" Text="出欠回答状況"/>
+            <ListView x:Name="invitedPersonListView" HasUnevenRows="true">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="http://drive.google.com/uc?export=view&amp;id=1dFR5gUMy9uuOTo3MNWhufahtDFf-nxF-" 
+                                           HeightRequest="75" WidthRequest="75" MinimumHeightRequest="50" MinimumWidthRequest="50"/>
+                                    <StackLayout Orientation="Vertical">
+                                        <Label Text="{Binding displayName}"/>
+                                        <Label Text="未定"/>
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
